@@ -82,8 +82,9 @@ namespace PitStore.Controllers
 
             await _cartService.AddToCartAsync(userId, productId, quantity);
             var cartTotal = await _cartService.GetCartTotalAsync(userId);
+            var cartCount = await _cartService.GetCartItemCountAsync(userId);
 
-            return Json(new { success = true, cartTotal = cartTotal });
+            return Json(new { success = true, cartTotal = cartTotal, cartCount = cartCount });
         }
 
         [HttpPost]
@@ -159,32 +160,33 @@ namespace PitStore.Controllers
             }
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetCartCount()
         {
-            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userId))
             {
                 return Json(new { count = 0 });
             }
 
-            var count = await _cartService.GetCartItemCountAsync(userId);
-            return Json(new { count });
+            var cart = await _cartService.GetCartAsync(userId);
+            var count = cart?.CartItems?.Sum(ci => ci.Quantity) ?? 0;
+            
+            return Json(new { count = count });
         }
 
+        [HttpGet]
         public async Task<IActionResult> GetCartPreview()
         {
-            var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userId))
             {
-                return PartialView("_CartPreview", Enumerable.Empty<CartItem>());
+                return PartialView("_CartPreview", new List<CartItem>());
             }
 
-            var cart = await _cartService.GetOrCreateCartAsync(userId);
-            var cartItems = await _context.CartItems
-                .Include(ci => ci.Product)
-                .Where(ci => ci.CartId == cart.Id)
-                .ToListAsync();
-
+            var cart = await _cartService.GetCartAsync(userId);
+            var cartItems = cart?.CartItems ?? new List<CartItem>();
+            
             return PartialView("_CartPreview", cartItems);
         }
 

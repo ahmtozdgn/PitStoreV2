@@ -48,9 +48,10 @@
                         if (response.success) {
                             // Update cart count
                             $('.cart-count').text(response.cartCount);
+                            $('.cart-count').show();
                             
                             // Show success message
-                            toastr.success('Ürün sepete eklendi');
+                            showToast('Ürün sepete eklendi', 'success');
                             
                             // Disable button if stock is depleted
                             if (response.stockQuantity === 0) {
@@ -61,13 +62,39 @@
                                     .text('Tükendi');
                             }
                         } else {
-                            toastr.error(response.message || 'Bir hata oluştu');
+                            showToast(response.message || 'Bir hata oluştu', 'error');
                         }
                     })
                     .fail(function() {
-                        toastr.error('Bir hata oluştu');
+                        showToast('Bir hata oluştu', 'error');
                     });
             });
         });
+        
+        function showToast(message, type = 'info') {
+            const toast = $(`
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Bildirim</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                </div>
+            `);
+            
+            if (!$('.toast-container').length) {
+                $('body').append('<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>');
+            }
+            
+            $('.toast-container').append(toast);
+            const bsToast = new bootstrap.Toast(toast[0]);
+            bsToast.show();
+            
+            toast.on('hidden.bs.toast', function () {
+                toast.remove();
+            });
+        }
     </script>
 } 

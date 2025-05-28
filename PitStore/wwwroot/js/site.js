@@ -65,7 +65,8 @@ function animateAddToCart(productId) {
 
 // Update Cart Count
 function updateCartCount() {
-    $.get('/Cart/GetCartCount', function (count) {
+    $.get('/Cart/GetCartCount', function (response) {
+        const count = response.count || 0;
         $('.cart-count').text(count);
         if (count > 0) {
             $('.cart-count').show();

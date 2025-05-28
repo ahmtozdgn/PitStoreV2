@@ -1,36 +1,41 @@
 @model IEnumerable<PitStore.Models.CartItem>
 
-@if (!Model.Any())
+@if (Model.Any())
 {
-    <div class="text-center py-3">
-        <i class="bi bi-cart3 fs-1 text-muted"></i>
-        <p class="mt-2 mb-0">Sepetiniz boş</p>
+    @foreach (var item in Model.Take(3))
+    {
+        <div class="d-flex align-items-center mb-3 pb-3 border-bottom" style="border-color:#555 !important;">
+            <img src="@(string.IsNullOrEmpty(item.Product.ImageUrl) ? "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=80&q=80" : item.Product.ImageUrl)" 
+                 alt="@item.Product.Name" 
+                 style="width:50px; height:50px; object-fit:cover; border-radius:6px;" 
+                 class="me-3" />
+            <div class="flex-grow-1">
+                <h6 class="mb-1 text-white">@item.Product.Name</h6>
+                <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-muted">@item.Quantity x @item.Product.Price.ToString("C")</small>
+                    <span class="fw-bold" style="color:#e10600;">@((item.Quantity * item.Product.Price).ToString("C"))</span>
+                </div>
+            </div>
+        </div>
+    }
+    
+    @if (Model.Count() > 3)
+    {
+        <div class="text-center mb-3">
+            <small class="text-muted">+@(Model.Count() - 3) ürün daha</small>
+        </div>
+    }
+    
+    <div class="d-flex justify-content-between align-items-center mb-3 pt-2 border-top" style="border-color:#555 !important;">
+        <span class="fw-bold">Toplam:</span>
+        <span class="fw-bold fs-5" style="color:#e10600;">@Model.Sum(i => i.Quantity * i.Product.Price).ToString("C")</span>
     </div>
 }
 else
 {
-    foreach (var item in Model)
-    {
-        <div class="cart-item" data-cart-item-id="@item.Id">
-            <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="cart-item-image">
-            <div class="cart-item-details">
-                <div class="cart-item-title">@item.Product.Name</div>
-                <div class="cart-item-price">@item.Product.Price.ToString("C")</div>
-                <div class="cart-item-quantity">
-                    <button class="btn btn-sm btn-outline-secondary quantity-btn" data-cart-item-id="@item.Id" data-change="-1">
-                        <i class="bi bi-dash"></i>
-                    </button>
-                    <input type="number" class="form-control form-control-sm quantity-input" 
-                           id="quantity-@item.Id" value="@item.Quantity" min="1" max="99"
-                           data-cart-item-id="@item.Id">
-                    <button class="btn btn-sm btn-outline-secondary quantity-btn" data-cart-item-id="@item.Id" data-change="1">
-                        <i class="bi bi-plus"></i>
-                    </button>
-                </div>
-            </div>
-            <button class="btn btn-sm btn-link text-danger remove-item" data-cart-item-id="@item.Id">
-                <i class="bi bi-trash"></i>
-            </button>
-        </div>
-    }
+    <div class="text-center py-4">
+        <i class="fas fa-shopping-cart fa-2x text-muted mb-3"></i>
+        <p class="text-muted mb-0">Sepetiniz boş</p>
+        <small class="text-muted">Alışverişe başlamak için ürünleri keşfedin!</small>
+    </div>
 } 

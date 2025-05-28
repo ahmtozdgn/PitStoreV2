@@ -1,58 +1,167 @@
 @model PitStore.Models.Payment
 
 @{
-    ViewData["Title"] = "Ödeme";
+    ViewData["Title"] = "Güvenli Ödeme";
 }
 
-<div class="container">
+<div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <h2 class="card-title text-center mb-4">Ödeme Bilgileri</h2>
-                    <div class="alert alert-info mb-4">
-                        <strong>Test Kartı:</strong> 4242 4242 4242 4242<br>
-                        <strong>Son Kullanma:</strong> Gelecekteki herhangi bir tarih (MM/YY)<br>
-                        <strong>CVC:</strong> Herhangi 3 rakam
+        <div class="col-lg-10">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold" style="font-family:'Orbitron',sans-serif; color:#e10600;">
+                    <i class="fas fa-shield-alt me-2"></i>Güvenli Ödeme
+                </h2>
+                <p class="text-muted">256-bit SSL şifreleme ile korunan ödeme sistemi</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Ödeme Formu -->
+                <div class="col-lg-7">
+                    <div class="card" style="background:#1a1a1a; border:2px solid #e10600;">
+                        <div class="card-header" style="background:#e10600; color:#fff;">
+                            <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i>Kart Bilgileri</h5>
+                        </div>
+                        <div class="card-body">
+                            <!-- Test Kartı Bilgisi -->
+                            <div class="alert alert-info mb-4" style="background:#2a2a2a; border-color:#17a2b8; color:#17a2b8;">
+                                <h6><i class="fas fa-info-circle me-2"></i>Test Kartı Bilgileri</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <strong>Kart No:</strong> 4242 4242 4242 4242<br>
+                                        <strong>Son Kullanma:</strong> 12/25
+                                    </div>
+                                    <div class="col-md-6">
+                                        <strong>CVC:</strong> 123<br>
+                                        <strong>İsim:</strong> Test User
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form asp-action="Process" method="post" id="paymentForm">
+                                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                                <!-- Kart Üzerindeki İsim -->
+                                <div class="mb-4">
+                                    <label asp-for="CardHolderName" class="form-label fw-bold" style="color:#e10600;">
+                                        <i class="fas fa-user me-2"></i>Kart Üzerindeki İsim
+                                    </label>
+                                    <input asp-for="CardHolderName" class="form-control form-control-lg" 
+                                           style="background:#2a2a2a; color:#fff; border-color:#555;" 
+                                           placeholder="Ad Soyad" />
+                                    <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                                </div>
+
+                                <!-- Kart Numarası -->
+                                <div class="mb-4">
+                                    <label asp-for="CardNumber" class="form-label fw-bold" style="color:#e10600;">
+                                        <i class="fas fa-credit-card me-2"></i>Kart Numarası
+                                    </label>
+                                    <div class="input-group">
+                                        <input asp-for="CardNumber" class="form-control form-control-lg" 
+                                               style="background:#2a2a2a; color:#fff; border-color:#555;" 
+                                               placeholder="4242 4242 4242 4242" maxlength="19" />
+                                        <span class="input-group-text" style="background:#2a2a2a; border-color:#555;">
+                                            <i class="fab fa-cc-visa text-primary me-1"></i>
+                                            <i class="fab fa-cc-mastercard text-warning me-1"></i>
+                                            <i class="fab fa-cc-amex text-info"></i>
+                                        </span>
+                                    </div>
+                                    <span asp-validation-for="CardNumber" class="text-danger"></span>
+                                </div>
+
+                                <!-- Son Kullanma ve CVC -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label asp-for="ExpiryDate" class="form-label fw-bold" style="color:#e10600;">
+                                            <i class="fas fa-calendar me-2"></i>Son Kullanma
+                                        </label>
+                                        <input asp-for="ExpiryDate" class="form-control form-control-lg" 
+                                               style="background:#2a2a2a; color:#fff; border-color:#555;" 
+                                               placeholder="MM/YY" maxlength="5" />
+                                        <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label asp-for="CVC" class="form-label fw-bold" style="color:#e10600;">
+                                            <i class="fas fa-lock me-2"></i>CVC
+                                        </label>
+                                        <input asp-for="CVC" class="form-control form-control-lg" 
+                                               style="background:#2a2a2a; color:#fff; border-color:#555;" 
+                                               placeholder="123" maxlength="4" />
+                                        <span asp-validation-for="CVC" class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Güvenlik Onayı -->
+                                <div class="mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="securityCheck" required>
+                                        <label class="form-check-label text-muted" for="securityCheck">
+                                            <i class="fas fa-shield-alt text-success me-2"></i>
+                                            Ödeme bilgilerimin güvenli şekilde işleneceğini kabul ediyorum.
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Ödeme Butonu -->
+                                <div class="d-grid gap-2">
+                                    <button type="submit" class="btn btn-f1 btn-lg" id="payButton">
+                                        <i class="fas fa-lock me-2"></i>
+                                        <span id="payButtonText">Güvenli Ödeme Yap - @Model.Amount.ToString("C")</span>
+                                        <div class="spinner-border spinner-border-sm ms-2 d-none" id="paySpinner"></div>
+                                    </button>
+                                    <a asp-controller="Cart" asp-action="Index" class="btn btn-outline-light">
+                                        <i class="fas fa-arrow-left me-2"></i>Sepete Dön
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+                </div>
 
-                    <form asp-action="Process" method="post">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                        <div class="mb-3">
-                            <label asp-for="CardHolderName" class="form-label">Kart Üzerindeki İsim</label>
-                            <input asp-for="CardHolderName" class="form-control" />
-                            <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                <!-- Sipariş Özeti -->
+                <div class="col-lg-5">
+                    <div class="card" style="background:#1a1a1a; border:2px solid #333;">
+                        <div class="card-header" style="background:#333; color:#fff;">
+                            <h5 class="mb-0"><i class="fas fa-shopping-bag me-2"></i>Sipariş Özeti</h5>
                         </div>
-
-                        <div class="mb-3">
-                            <label asp-for="CardNumber" class="form-label">Kart Numarası</label>
-                            <input asp-for="CardNumber" class="form-control" placeholder="4242 4242 4242 4242" />
-                            <span asp-validation-for="CardNumber" class="text-danger"></span>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="ExpiryDate" class="form-label">Son Kullanma Tarihi</label>
-                                <input asp-for="ExpiryDate" class="form-control" placeholder="MM/YY" />
-                                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                        <div class="card-body">
+                            <!-- Sepet Ürünleri -->
+                            <div id="cartSummary">
+                                <div class="text-center py-3">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Yükleniyor...</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label asp-for="CVC" class="form-label">CVC</label>
-                                <input asp-for="CVC" class="form-control" placeholder="123" />
-                                <span asp-validation-for="CVC" class="text-danger"></span>
+                            
+                            <!-- Toplam -->
+                            <hr style="border-color:#555;">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="fw-bold fs-5">Toplam Tutar:</span>
+                                <span class="fw-bold fs-4" style="color:#e10600;">@Model.Amount.ToString("C")</span>
+                            </div>
+                            
+                            <!-- Güvenlik Bilgileri -->
+                            <div class="alert alert-success" style="background:#1a4a1a; border-color:#28a745; color:#28a745;">
+                                <h6><i class="fas fa-shield-alt me-2"></i>Güvenlik Garantisi</h6>
+                                <ul class="mb-0 small">
+                                    <li>256-bit SSL şifreleme</li>
+                                    <li>PCI DSS uyumlu</li>
+                                    <li>Kart bilgileri saklanmaz</li>
+                                    <li>3D Secure destekli</li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Kargo Bilgisi -->
+                            <div class="alert alert-info" style="background:#1a1a4a; border-color:#17a2b8; color:#17a2b8;">
+                                <h6><i class="fas fa-shipping-fast me-2"></i>Kargo Bilgisi</h6>
+                                <p class="mb-0 small">
+                                    <strong>Ücretsiz Kargo:</strong> 500₺ ve üzeri siparişlerde<br>
+                                    <strong>Teslimat:</strong> 1-3 iş günü içinde
+                                </p>
                             </div>
                         </div>
-
-                        <div class="alert alert-primary mb-4">
-                            <h5 class="mb-0">Toplam Tutar: $@Model.Amount.ToString("F2")</h5>
-                        </div>
-
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-primary">Ödemeyi Tamamla</button>
-                            <a asp-controller="Cart" asp-action="Index" class="btn btn-secondary">Sepete Dön</a>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,17 +171,148 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-        // Kart numarası formatlaması
-        document.getElementById('CardNumber').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            let formattedValue = '';
-            for(let i = 0; i < value.length; i++) {
-                if(i > 0 && i % 4 === 0) {
-                    formattedValue += ' ';
-                }
-                formattedValue += value[i];
-            }
-            e.target.value = formattedValue;
+        $(document).ready(function() {
+            // Sepet özetini yükle
+            loadCartSummary();
+            
+            // Form validasyonu
+            setupFormValidation();
+            
+            // Kart formatlaması
+            setupCardFormatting();
         });
+        
+        function loadCartSummary() {
+            $.get('/Cart/GetCartPreview')
+                .done(function(data) {
+                    $('#cartSummary').html(data);
+                })
+                .fail(function() {
+                    $('#cartSummary').html('<p class="text-muted text-center">Sepet bilgileri yüklenemedi.</p>');
+                });
+        }
+        
+        function setupFormValidation() {
+            $('#paymentForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) {
+                    return false;
+                }
+                
+                // Ödeme işlemi başlatıldığında buton durumunu değiştir
+                $('#payButton').prop('disabled', true);
+                $('#payButtonText').text('Ödeme İşleniyor...');
+                $('#paySpinner').removeClass('d-none');
+                
+                // Form gönder
+                setTimeout(() => {
+                    this.submit();
+                }, 1000);
+            });
+        }
+        
+        function validateForm() {
+            let isValid = true;
+            
+            // Kart numarası kontrolü
+            const cardNumber = $('#CardNumber').val().replace(/\s/g, '');
+            if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+                showError('CardNumber', 'Geçerli bir kart numarası giriniz.');
+                isValid = false;
+            }
+            
+            // Son kullanma tarihi kontrolü
+            const expiryDate = $('#ExpiryDate').val();
+            if (!/^\d{2}\/\d{2}$/.test(expiryDate)) {
+                showError('ExpiryDate', 'MM/YY formatında giriniz.');
+                isValid = false;
+            }
+            
+            // CVC kontrolü
+            const cvc = $('#CVC').val();
+            if (cvc.length < 3 || !/^\d+$/.test(cvc)) {
+                showError('CVC', 'Geçerli bir CVC giriniz.');
+                isValid = false;
+            }
+            
+            // Güvenlik onayı kontrolü
+            if (!$('#securityCheck').is(':checked')) {
+                showToast('Lütfen güvenlik onayını işaretleyiniz.', 'error');
+                isValid = false;
+            }
+            
+            return isValid;
+        }
+        
+        function showError(fieldName, message) {
+            const field = $(`#${fieldName}`);
+            field.addClass('is-invalid');
+            field.next('.text-danger').text(message);
+        }
+        
+        function setupCardFormatting() {
+            // Kart numarası formatlaması
+            $('#CardNumber').on('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                let formattedValue = '';
+                for(let i = 0; i < value.length && i < 16; i++) {
+                    if(i > 0 && i % 4 === 0) {
+                        formattedValue += ' ';
+                    }
+                    formattedValue += value[i];
+                }
+                e.target.value = formattedValue;
+                $(this).removeClass('is-invalid');
+            });
+            
+            // Son kullanma tarihi formatlaması
+            $('#ExpiryDate').on('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+                $(this).removeClass('is-invalid');
+            });
+            
+            // CVC sadece rakam
+            $('#CVC').on('input', function(e) {
+                e.target.value = e.target.value.replace(/\D/g, '');
+                $(this).removeClass('is-invalid');
+            });
+            
+            // İsim sadece harf
+            $('#CardHolderName').on('input', function(e) {
+                $(this).removeClass('is-invalid');
+            });
+        }
+        
+        function showToast(message, type = 'info') {
+            const toastClass = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-info';
+            const toast = $(`
+                <div class="toast ${toastClass} text-white" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header ${toastClass} text-white border-0">
+                        <strong class="me-auto">Bildirim</strong>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                </div>
+            `);
+            
+            if (!$('.toast-container').length) {
+                $('body').append('<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>');
+            }
+            
+            $('.toast-container').append(toast);
+            const bsToast = new bootstrap.Toast(toast[0]);
+            bsToast.show();
+            
+            toast.on('hidden.bs.toast', function() {
+                toast.remove();
+            });
+        }
     </script>
 } 

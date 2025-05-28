@@ -446,5 +446,18 @@ namespace PitStore.Controllers
                 return Json(new { success = false, message = ex.Message });
             }
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetSimilarProducts(int productId, int categoryId)
+        {
+            var similarProducts = await _context.Products
+                .Include(p => p.Category)
+                .Include(p => p.Team)
+                .Where(p => p.Id != productId && p.CategoryId == categoryId)
+                .Take(4)
+                .ToListAsync();
+
+            return PartialView("_SimilarProducts", similarProducts);
+        }
     }
 } 

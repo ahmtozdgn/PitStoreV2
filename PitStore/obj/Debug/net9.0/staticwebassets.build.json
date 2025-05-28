@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tSNO/qwkTobqH3ojNzy4UpWKpqUjsT4LnUkPQuO14GA=",
+  "Hash": "SsLhPr7hSC8i3oSKaWiyr7NbToJaBiUIgYQQktjPSzE=",
   "Source": "PitStore",
   "BasePath": "_content/PitStore",
   "Mode": "Default",
@@ -584,12 +584,12 @@
       "OriginalItemSpec": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-fr31d7v1eg.gz",
+      "Identity": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-77sc682239.gz",
       "SourceId": "PitStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/PitStore",
-      "RelativePath": "css/site#[.{fingerprint=fr31d7v1eg}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=77sc682239}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -598,8 +598,8 @@
       "RelatedAsset": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "g3pu1dcdmj",
-      "Integrity": "dDCG7hwjrgfkejG9cO6rK5pv6OtPgI0EI3lZJY3QpUQ=",
+      "Fingerprint": "cll6wshqvk",
+      "Integrity": "0FLUKljEp/xDI9Ubdqk911mTkPq0jnowVN0MqKTOd6Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\css\\site.css"
@@ -731,12 +731,12 @@
       "OriginalItemSpec": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-w5m8ragz01.gz",
+      "Identity": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-a5o9xhi52d.gz",
       "SourceId": "PitStore",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/PitStore",
-      "RelativePath": "js/site#[.{fingerprint=w5m8ragz01}]?.js.gz",
+      "RelativePath": "js/site#[.{fingerprint=a5o9xhi52d}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -745,8 +745,8 @@
       "RelatedAsset": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\js\\site.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "756b96hf67",
-      "Integrity": "20Qmn0yrt/gGPaAp5BbtRyyHmz+T+ZtlApdNeQb4L+8=",
+      "Fingerprint": "tlt42l1ysk",
+      "Integrity": "H0tq8CpyyZ2/kaK1s0GaFzmH1R+DQ8g3mEZjYCVf5E4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\js\\site.js"
@@ -1417,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "fr31d7v1eg",
-      "Integrity": "S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg=",
+      "Fingerprint": "77sc682239",
+      "Integrity": "w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1459,8 +1459,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "w5m8ragz01",
-      "Integrity": "NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM=",
+      "Fingerprint": "a5o9xhi52d",
+      "Integrity": "fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
@@ -2728,13 +2728,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-fr31d7v1eg.gz",
+      "Route": "css/site.77sc682239.css",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-77sc682239.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000209073803"
+          "Quality": "0.000143533802"
         }
       ],
       "ResponseHeaders": [
@@ -2744,19 +2744,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4782"
+          "Value": "6966"
         },
         {
           "Name": "ETag",
-          "Value": "\"dDCG7hwjrgfkejG9cO6rK5pv6OtPgI0EI3lZJY3QpUQ=\""
+          "Value": "\"0FLUKljEp/xDI9Ubdqk911mTkPq0jnowVN0MqKTOd6Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:16:29 GMT"
+          "Value": "Wed, 28 May 2025 11:31:29 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -2772,18 +2772,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg=\""
+          "Value": "W/\"w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "77sc682239"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg="
+          "Value": "sha256-w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c="
         }
       ]
     },
     {
-      "Route": "css/site.css",
+      "Route": "css/site.77sc682239.css",
       "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2793,7 +2801,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22938"
+          "Value": "33947"
         },
         {
           "Name": "Content-Type",
@@ -2801,121 +2809,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg=\""
+          "Value": "\"w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:16:29 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-fr31d7v1eg.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4782"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dDCG7hwjrgfkejG9cO6rK5pv6OtPgI0EI3lZJY3QpUQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:16:29 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-dDCG7hwjrgfkejG9cO6rK5pv6OtPgI0EI3lZJY3QpUQ="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.fr31d7v1eg.css",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-fr31d7v1eg.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000209073803"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4782"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dDCG7hwjrgfkejG9cO6rK5pv6OtPgI0EI3lZJY3QpUQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:16:29 GMT"
+          "Value": "Wed, 28 May 2025 11:31:29 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fr31d7v1eg"
+          "Value": "77sc682239"
         },
         {
           "Name": "label",
@@ -2923,13 +2831,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg="
+          "Value": "sha256-w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c="
         }
       ]
     },
     {
-      "Route": "css/site.fr31d7v1eg.css",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\css\\site.css",
+      "Route": "css/site.77sc682239.css.gz",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-77sc682239.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2938,7 +2846,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "22938"
+          "Value": "6966"
         },
         {
           "Name": "Content-Type",
@@ -2946,56 +2854,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg=\""
+          "Value": "\"0FLUKljEp/xDI9Ubdqk911mTkPq0jnowVN0MqKTOd6Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:16:29 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "fr31d7v1eg"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-S6KXJvghWYkb7qQqPUJeYTfEheVRY5M6rjBmsoboNUg="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.fr31d7v1eg.css.gz",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-fr31d7v1eg.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4782"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"dDCG7hwjrgfkejG9cO6rK5pv6OtPgI0EI3lZJY3QpUQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 24 May 2025 19:16:29 GMT"
+          "Value": "Wed, 28 May 2025 11:31:29 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3013,7 +2876,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "fr31d7v1eg"
+          "Value": "77sc682239"
         },
         {
           "Name": "label",
@@ -3021,7 +2884,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-dDCG7hwjrgfkejG9cO6rK5pv6OtPgI0EI3lZJY3QpUQ="
+          "Value": "sha256-0FLUKljEp/xDI9Ubdqk911mTkPq0jnowVN0MqKTOd6Y="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-77sc682239.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000143533802"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6966"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0FLUKljEp/xDI9Ubdqk911mTkPq0jnowVN0MqKTOd6Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 11:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "33947"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 11:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-w5/pYl9HSDxQbgK0yTd74MhoEsUjg7qMd8X7HaKMN8c="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\fh6jtl6zij-77sc682239.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6966"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0FLUKljEp/xDI9Ubdqk911mTkPq0jnowVN0MqKTOd6Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 11:31:29 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0FLUKljEp/xDI9Ubdqk911mTkPq0jnowVN0MqKTOd6Y="
         }
       ]
     },
@@ -3324,13 +3324,13 @@
       ]
     },
     {
-      "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-w5m8ragz01.gz",
+      "Route": "js/site.a5o9xhi52d.js",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-a5o9xhi52d.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000253678336"
+          "Quality": "0.000252908447"
         }
       ],
       "ResponseHeaders": [
@@ -3340,19 +3340,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3941"
+          "Value": "3953"
         },
         {
           "Name": "ETag",
-          "Value": "\"20Qmn0yrt/gGPaAp5BbtRyyHmz+T+ZtlApdNeQb4L+8=\""
+          "Value": "\"H0tq8CpyyZ2/kaK1s0GaFzmH1R+DQ8g3mEZjYCVf5E4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 13:47:31 GMT"
+          "Value": "Wed, 28 May 2025 11:18:48 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -3368,18 +3368,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM=\""
+          "Value": "W/\"fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "a5o9xhi52d"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM="
+          "Value": "sha256-fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s="
         }
       ]
     },
     {
-      "Route": "js/site.js",
+      "Route": "js/site.a5o9xhi52d.js",
       "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3389,7 +3397,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14215"
+          "Value": "14262"
         },
         {
           "Name": "Content-Type",
@@ -3397,121 +3405,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM=\""
+          "Value": "\"fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 13:47:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.js.gz",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-w5m8ragz01.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3941"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"20Qmn0yrt/gGPaAp5BbtRyyHmz+T+ZtlApdNeQb4L+8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 13:47:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-20Qmn0yrt/gGPaAp5BbtRyyHmz+T+ZtlApdNeQb4L+8="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.w5m8ragz01.js",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-w5m8ragz01.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000253678336"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3941"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"20Qmn0yrt/gGPaAp5BbtRyyHmz+T+ZtlApdNeQb4L+8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 13:47:31 GMT"
+          "Value": "Wed, 28 May 2025 11:18:48 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "w5m8ragz01"
+          "Value": "a5o9xhi52d"
         },
         {
           "Name": "label",
@@ -3519,13 +3427,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM="
+          "Value": "sha256-fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s="
         }
       ]
     },
     {
-      "Route": "js/site.w5m8ragz01.js",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\js\\site.js",
+      "Route": "js/site.a5o9xhi52d.js.gz",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-a5o9xhi52d.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3534,7 +3442,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "14215"
+          "Value": "3953"
         },
         {
           "Name": "Content-Type",
@@ -3542,56 +3450,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM=\""
+          "Value": "\"H0tq8CpyyZ2/kaK1s0GaFzmH1R+DQ8g3mEZjYCVf5E4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 13:47:31 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "w5m8ragz01"
-        },
-        {
-          "Name": "label",
-          "Value": "js/site.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-NEVM6hG41RQTTit37gXN3yVTSUnAlJyupeWwyIxJkdM="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.w5m8ragz01.js.gz",
-      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-w5m8ragz01.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3941"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"20Qmn0yrt/gGPaAp5BbtRyyHmz+T+ZtlApdNeQb4L+8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 21 May 2025 13:47:31 GMT"
+          "Value": "Wed, 28 May 2025 11:18:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3609,7 +3472,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "w5m8ragz01"
+          "Value": "a5o9xhi52d"
         },
         {
           "Name": "label",
@@ -3617,7 +3480,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-20Qmn0yrt/gGPaAp5BbtRyyHmz+T+ZtlApdNeQb4L+8="
+          "Value": "sha256-H0tq8CpyyZ2/kaK1s0GaFzmH1R+DQ8g3mEZjYCVf5E4="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-a5o9xhi52d.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000252908447"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3953"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"H0tq8CpyyZ2/kaK1s0GaFzmH1R+DQ8g3mEZjYCVf5E4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 11:18:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14262"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 11:18:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fuclYBSudHY9XNEemb/yrJgm8H9jIMKNdxxTQckWS3s="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js.gz",
+      "AssetFile": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\obj\\Debug\\net9.0\\compressed\\jwpcgiau8n-a5o9xhi52d.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3953"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"H0tq8CpyyZ2/kaK1s0GaFzmH1R+DQ8g3mEZjYCVf5E4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 28 May 2025 11:18:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-H0tq8CpyyZ2/kaK1s0GaFzmH1R+DQ8g3mEZjYCVf5E4="
         }
       ]
     },

@@ -5,56 +5,141 @@
 }
 
 <div class="container py-5">
-    <div class="row g-5 align-items-center">
-        <div class="col-md-6 text-center">
-            <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "https://imgs.search.brave.com/6k14w2x0C1uDm6s0ZYP2OKKjGpOSAypArR1FFf0rTUE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vb3NhTVZL/aThsSGJwWXliUFdo/NEx0VEk5MzRRNG02/cjFfY0pMVFNfdmJC/QS9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTl0/TG0xbC9aR2xoTFdG/dFlYcHZiaTVqL2Iy/MHZhVzFoWjJWekww/a3YvTmpGbE5FRjJl/R1JFZVV3dS9hbkJu" : Model.ImageUrl)" alt="@Model.Name" class="img-fluid rounded shadow-lg mb-3" style="max-height:400px; object-fit:cover; background:#222;" loading="lazy" />
+    <!-- Ürün Detayları -->
+    <div class="row g-5 align-items-start">
+        <div class="col-md-6">
+            <!-- Ana Ürün Resmi -->
+            <div class="product-image-container mb-4">
+                <img id="mainProductImage" src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "https://imgs.search.brave.com/bCM6j0-G0yITdPlwePUSYYOJ4mD-CGykWFKXOcz9kUg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/NjF6M2VtOHFYVkwu/anBn" : Model.ImageUrl)"
+                     alt="@Model.Name" class="img-fluid rounded shadow-lg w-100" 
+                     style="max-height:500px; object-fit:cover; cursor:zoom-in;" loading="lazy" />
+            </div>
+            
+            <!-- Takım Logosu -->
             @if (!string.IsNullOrEmpty(Model.Team?.LogoUrl))
             {
-                <img src="@Model.Team.LogoUrl" alt="@Model.Team.Name" class="team-logo mt-2" style="width:48px; height:48px; background:#fff; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.15);" loading="lazy" />
+                <div class="text-center">
+                    <img src="@Model.Team.LogoUrl" alt="@Model.Team.Name" class="team-logo" 
+                         style="width:60px; height:60px; background:#fff; border-radius:50%; box-shadow:0 4px 12px rgba(225,6,0,0.3);" loading="lazy" />
+                </div>
             }
         </div>
+        
         <div class="col-md-6">
-            <h2 class="fw-bold mb-2" style="font-family:'Orbitron',sans-serif; color:#e10600;">@Model.Name</h2>
-            <div class="mb-2" style="color:#bbb;">@Model.Category?.Name</div>
+            <!-- Ürün Başlığı -->
+            <h1 class="fw-bold mb-3" style="font-family:'Orbitron',sans-serif; color:#e10600; font-size:2.5rem;">@Model.Name</h1>
+            
+            <!-- Kategori ve Takım -->
             <div class="mb-3">
+                <span class="badge bg-secondary me-2">@Model.Category?.Name</span>
+                <span class="badge" style="background:#e10600;">@Model.Team?.Name</span>
+            </div>
+            
+            <!-- Fiyat -->
+            <div class="mb-4">
                 @if (Model.IsOnSale && Model.SalePrice.HasValue)
                 {
-                    <span class="original-price">@String.Format("{0:C}", Model.Price)</span>
-                    <span class="sale-price">@String.Format("{0:C}", Model.SalePrice)</span>
+                    <div class="price-section">
+                        <span class="text-decoration-line-through text-muted fs-5 me-2">@Model.Price.ToString("C")</span>
+                        <span class="fw-bold fs-3" style="color:#e10600;">@Model.SalePrice.Value.ToString("C")</span>
+                        <span class="badge bg-success ms-2">%@(Math.Round((1 - Model.SalePrice.Value / Model.Price) * 100)) İndirim</span>
+                    </div>
                 }
                 else
                 {
-                    <span class="price">@String.Format("{0:C}", Model.Price)</span>
+                    <span class="fw-bold fs-3" style="color:#e10600;">@Model.Price.ToString("C")</span>
                 }
             </div>
-            <div class="mb-3">
-                <span class="badge @(Model.StockQuantity > 10 ? "bg-success" : Model.StockQuantity > 0 ? "bg-warning text-dark" : "bg-danger")">
-                    @(Model.StockQuantity > 10 ? "Stokta" : Model.StockQuantity > 0 ? "Az Stok" : "Tükendi")
-                </span>
-                <span class="ms-2" style="color:#e10600;"><i class="fas fa-shipping-fast"></i> Kargo: @(Model.EstimatedDeliveryDays ?? 3) gün</span>
+            
+            <!-- Stok Durumu -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center">
+                    <span class="badge @(Model.StockQuantity > 10 ? "bg-success" : Model.StockQuantity > 0 ? "bg-warning text-dark" : "bg-danger") me-3">
+                        @(Model.StockQuantity > 10 ? "Stokta" : Model.StockQuantity > 0 ? $"Son {Model.StockQuantity} Adet" : "Tükendi")
+                    </span>
+                    <span style="color:#e10600;"><i class="fas fa-shipping-fast me-1"></i> Kargo: @(Model.EstimatedDeliveryDays ?? 3) gün</span>
+                </div>
             </div>
-            <div class="mb-3">
-                <p class="lead">@Model.Description</p>
+            
+            <!-- Açıklama -->
+            <div class="mb-4">
+                <h5 class="fw-bold mb-3" style="color:#e10600;">Ürün Açıklaması</h5>
+                <p class="lead" style="color:#ddd; line-height:1.6;">@Model.Description</p>
             </div>
-            <div class="mb-3">
-                <h6 class="fw-bold" style="color:#e10600;">Teknik Bilgiler</h6>
-                <ul class="list-unstyled" style="color:#bbb;">
-                    <li><strong>Ürün Kodu:</strong> @Model.Id</li>
-                    <li><strong>Takım:</strong> @Model.Team?.Name</li>
-                    <li><strong>Kategori:</strong> @Model.Category?.Name</li>
-                    <li><strong>Stok:</strong> @Model.StockQuantity</li>
-                </ul>
+            
+            <!-- Teknik Bilgiler -->
+            <div class="mb-4">
+                <h6 class="fw-bold mb-3" style="color:#e10600;">Teknik Bilgiler</h6>
+                <div class="row">
+                    <div class="col-6">
+                        <ul class="list-unstyled" style="color:#bbb;">
+                            <li class="mb-2"><strong>Ürün Kodu:</strong> #@Model.Id.ToString("D6")</li>
+                            <li class="mb-2"><strong>Takım:</strong> @Model.Team?.Name</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <ul class="list-unstyled" style="color:#bbb;">
+                            <li class="mb-2"><strong>Kategori:</strong> @Model.Category?.Name</li>
+                            <li class="mb-2"><strong>Stok:</strong> @Model.StockQuantity adet</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="d-flex gap-2 mt-4">
-                <form method="post" action="/Cart/AddToCart">
-                    <input type="hidden" name="productId" value="@Model.Id" />
-                    <button type="submit" class="btn btn-f1 btn-lg" @(Model.StockQuantity == 0 ? "disabled" : "")>
-                        <i class="fas fa-bolt"></i> Hemen Satın Al
-                    </button>
-                </form>
-                <button class="btn btn-outline-f1 btn-lg favorite-btn" data-id="@Model.Id">
-                    <i class="far fa-heart"></i> Favorilere Ekle
+            
+            <!-- Miktar Seçimi ve Butonlar -->
+            <div class="mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-bold" style="color:#e10600;">Miktar:</label>
+                        <div class="input-group">
+                            <button class="btn btn-outline-secondary" type="button" id="decreaseQty">-</button>
+                            <input type="number" class="form-control text-center" id="quantity" value="1" min="1" max="@Model.StockQuantity" style="background:#2a2a2a; color:#fff; border-color:#555;">
+                            <button class="btn btn-outline-secondary" type="button" id="increaseQty">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-f1 btn-lg add-to-cart-btn" data-product-id="@Model.Id" @(Model.StockQuantity == 0 ? "disabled" : "")>
+                                <i class="fas fa-shopping-cart me-2"></i>Sepete Ekle
+                            </button>
+                            <button class="btn btn-outline-f1 btn-lg buy-now-btn" data-product-id="@Model.Id" @(Model.StockQuantity == 0 ? "disabled" : "")>
+                                <i class="fas fa-bolt me-2"></i>Hemen Satın Al
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Favorilere Ekle -->
+            <div class="text-center">
+                <button class="btn btn-outline-light favorite-btn" data-id="@Model.Id">
+                    <i class="far fa-heart me-2"></i>Favorilere Ekle
                 </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Benzer Ürünler -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h3 class="fw-bold mb-4 text-center" style="font-family:'Orbitron',sans-serif; color:#e10600;">Benzer Ürünler</h3>
+            <div id="similarProducts" class="row g-4">
+                <!-- Benzer ürünler AJAX ile yüklenecek -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Resim Büyütme Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="background:#1a1a1a; border:2px solid #e10600;">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" style="color:#e10600;">@Model.Name</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img src="@Model.ImageUrl" alt="@Model.Name" class="img-fluid rounded">
             </div>
         </div>
     </div>
@@ -62,31 +147,109 @@
 
 @section Scripts {
     <script>
+        $(document).ready(function() {
+            // Miktar artırma/azaltma
+            $('#increaseQty').click(function() {
+                let qty = parseInt($('#quantity').val());
+                let maxQty = parseInt($('#quantity').attr('max'));
+                if (qty < maxQty) {
+                    $('#quantity').val(qty + 1);
+                }
+            });
+            
+            $('#decreaseQty').click(function() {
+                let qty = parseInt($('#quantity').val());
+                if (qty > 1) {
+                    $('#quantity').val(qty - 1);
+                }
+            });
+            
+            // Resim büyütme
+            $('#mainProductImage').click(function() {
+                $('#imageModal').modal('show');
+            });
+            
+            // Sepete ekleme
+            $('.add-to-cart-btn').click(function() {
+                const productId = $(this).data('product-id');
+                const quantity = parseInt($('#quantity').val());
+                
+                $.post('/Cart/AddToCart', { productId: productId, quantity: quantity })
+                    .done(function(response) {
+                        if (response.success) {
+                            $('.cart-count').text(response.cartCount);
+                            $('.cart-count').show();
+                            showToast('Ürün sepete eklendi!', 'success');
+                        } else {
+                            showToast(response.message || 'Bir hata oluştu', 'error');
+                        }
+                    })
+                    .fail(function() {
+                        showToast('Bir hata oluştu', 'error');
+                    });
+            });
+            
+            // Hemen satın al
+            $('.buy-now-btn').click(function() {
+                const productId = $(this).data('product-id');
+                const quantity = parseInt($('#quantity').val());
+                
+                $.post('/Cart/AddToCart', { productId: productId, quantity: quantity })
+                    .done(function(response) {
+                        if (response.success) {
+                            window.location.href = '/Cart';
+                        } else {
+                            showToast(response.message || 'Bir hata oluştu', 'error');
+                        }
+                    });
+            });
+            
+            // Favorilere ekleme
+            $('.favorite-btn').click(function() {
+                const productId = $(this).data('id');
+                showToast('Favorilere eklendi!', 'success');
+                $(this).find('i').removeClass('far').addClass('fas');
+            });
+            
+            // Benzer ürünleri yükle
+            loadSimilarProducts(@Model.Id, @Model.CategoryId);
+        });
+        
+        function loadSimilarProducts(productId, categoryId) {
+            $.get('/Product/GetSimilarProducts', { productId: productId, categoryId: categoryId })
+                .done(function(data) {
+                    $('#similarProducts').html(data);
+                })
+                .fail(function() {
+                    $('#similarProducts').html('<div class="col-12 text-center"><p class="text-muted">Benzer ürünler yüklenemedi.</p></div>');
+                });
+        }
+        
         function showToast(message, type = 'info') {
+            const toastClass = type === 'success' ? 'bg-success' : type === 'error' ? 'bg-danger' : 'bg-info';
             const toast = $(`
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-header">
+                <div class="toast ${toastClass} text-white" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header ${toastClass} text-white border-0">
                         <strong class="me-auto">Bildirim</strong>
-                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
                     </div>
                     <div class="toast-body">
                         ${message}
                     </div>
                 </div>
             `);
+            
+            if (!$('.toast-container').length) {
+                $('body').append('<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>');
+            }
+            
             $('.toast-container').append(toast);
             const bsToast = new bootstrap.Toast(toast[0]);
             bsToast.show();
-            toast.on('hidden.bs.toast', function () {
+            
+            toast.on('hidden.bs.toast', function() {
                 toast.remove();
             });
         }
-        $(document).ready(function () {
-            $('.favorite-btn').click(function () {
-                var productId = $(this).data('id');
-                showToast('Favorilere eklendi!', 'info');
-            });
-        });
     </script>
-    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
 } 

@@ -69,7 +69,7 @@ namespace PitStore.Services
             return true;
         }
 
-        public async Task<Payment> ProcessPaymentAsync(int orderId, string userId)
+        public async Task<Payment?> ProcessPaymentAsync(int orderId, string userId)
         {
             var order = await _context.Orders
                 .FirstOrDefaultAsync(o => o.Id == orderId && o.UserId == userId);
@@ -97,7 +97,7 @@ namespace PitStore.Services
                 .Include(p => p.Order)
                 .FirstOrDefaultAsync(p => p.Id == id);
 
-            return payment ?? null;
+            return payment;
         }
 
         public async Task<PaymentResult?> ProcessPaymentAsync(PaymentRequest request)

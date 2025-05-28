@@ -8,7 +8,7 @@ namespace PitStore.Services
         Task<bool> ProcessPaymentAsync(Order order);
         Task<bool> ProcessRefundAsync(Order order);
         Task<bool> ValidatePaymentAsync(string paymentIntentId);
-        Task<Payment> ProcessPaymentAsync(int orderId, string userId);
+        Task<Payment?> ProcessPaymentAsync(int orderId, string userId);
         Task<Payment?> GetPaymentAsync(int id);
     }
 } 

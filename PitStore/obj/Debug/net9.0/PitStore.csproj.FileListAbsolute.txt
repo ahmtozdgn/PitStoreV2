@@ -190,7 +190,6 @@ C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\global.json
 C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\Stripe.net.dll
-C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net9.0\compressed\jwpcgiau8n-w5m8ragz01.gz
 C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\Microsoft.Build.Locator.dll
@@ -227,5 +226,7 @@ C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\runtimes\win\lib\
 C:\Users\ahmet\source\repos\PitStore\PitStore\bin\Debug\net9.0\SixLabors.ImageSharp.dll
 C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net9.0\compressed\11bl4sxwqj-rroqb3taqf.gz
 C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net9.0\compressed\w1lvuvbui6-rroqb3taqf.gz
-C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net9.0\compressed\fh6jtl6zij-fr31d7v1eg.gz
+C:\Users\ahmet\source\repos\PitStore\Pitstore\obj\Debug\net9.0\PitStore.sourcelink.json
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net9.0\compressed\fh6jtl6zij-77sc682239.gz
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net9.0\compressed\jwpcgiau8n-a5o9xhi52d.gz
 C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

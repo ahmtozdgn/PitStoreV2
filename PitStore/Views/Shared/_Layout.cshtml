@@ -10,49 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-    <style>
-        body, html {
-            font-family: 'Roboto', 'Arial', sans-serif;
-            background: #111216;
-            color: #f5f5f5;
-        }
-        .navbar, .footer {
-            background: #18191f !important;
-        }
-        .navbar-brand, .nav-link, .footer {
-            color: #fff !important;
-        }
-        .navbar-brand span {
-            font-family: 'Orbitron', 'Roboto', sans-serif;
-            color: #e10600 !important;
-            font-size: 2rem;
-            letter-spacing: 2px;
-        }
-        .navbar .nav-link.active, .navbar .nav-link:hover {
-            color: #e10600 !important;
-        }
-        .btn-f1, .btn-danger, .btn-primary {
-            background: linear-gradient(90deg, #e10600 60%, #b80000 100%);
-            border: none;
-            color: #fff;
-            font-weight: 500;
-        }
-        .btn-f1:hover, .btn-danger:hover, .btn-primary:hover {
-            background: #b80000;
-            color: #fff;
-        }
-        .footer {
-            font-size: 0.95rem;
-            color: #bbb !important;
-            border-top: 2px solid #e10600;
-            padding: 1.2rem 0;
-        }
-        .footer a { color: #e10600; }
-        .footer a:hover { color: #fff; }
-        @@media (max-width: 768px) {
-            .navbar-brand span { font-size: 1.3rem; }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -85,6 +42,13 @@
             </div>
         </nav>
     </header>
+    <!-- F1 Temalı Kayan Bilgi Bandı Başlangıç -->
+    <div class="f1-marquee-wrapper">
+        <marquee class="f1-marquee" behavior="scroll" direction="left" scrollamount="8">
+            <span class="f1-marquee-text">PitStore'a Hoş Geldiniz – Tüm F1 Takım Ürünlerinde %10 İndirim! &nbsp; | &nbsp; Formula 1 Tutkunlarına Özel Ürünler &nbsp; | &nbsp; Hız, Tutku, Alışveriş!</span>
+        </marquee>
+    </div>
+    <!-- F1 Temalı Kayan Bilgi Bandı Bitiş -->
     <div class="container-fluid px-0" style="min-height: 80vh;">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -97,6 +61,12 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        $(document).ready(function() {
+            // Sayfa yüklendiğinde sepet sayacını güncelle
+            updateCartCount();
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
