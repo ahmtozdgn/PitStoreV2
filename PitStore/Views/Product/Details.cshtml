@@ -1,0 +1,92 @@
+@model PitStore.Models.Product
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<div class="container py-5">
+    <div class="row g-5 align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="@(string.IsNullOrEmpty(Model.ImageUrl) ? "https://imgs.search.brave.com/6k14w2x0C1uDm6s0ZYP2OKKjGpOSAypArR1FFf0rTUE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vb3NhTVZL/aThsSGJwWXliUFdo/NEx0VEk5MzRRNG02/cjFfY0pMVFNfdmJC/QS9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTl0/TG0xbC9aR2xoTFdG/dFlYcHZiaTVqL2Iy/MHZhVzFoWjJWekww/a3YvTmpGbE5FRjJl/R1JFZVV3dS9hbkJu" : Model.ImageUrl)" alt="@Model.Name" class="img-fluid rounded shadow-lg mb-3" style="max-height:400px; object-fit:cover; background:#222;" loading="lazy" />
+            @if (!string.IsNullOrEmpty(Model.Team?.LogoUrl))
+            {
+                <img src="@Model.Team.LogoUrl" alt="@Model.Team.Name" class="team-logo mt-2" style="width:48px; height:48px; background:#fff; border-radius:50%; box-shadow:0 2px 8px rgba(0,0,0,0.15);" loading="lazy" />
+            }
+        </div>
+        <div class="col-md-6">
+            <h2 class="fw-bold mb-2" style="font-family:'Orbitron',sans-serif; color:#e10600;">@Model.Name</h2>
+            <div class="mb-2" style="color:#bbb;">@Model.Category?.Name</div>
+            <div class="mb-3">
+                @if (Model.IsOnSale && Model.SalePrice.HasValue)
+                {
+                    <span class="original-price">@String.Format("{0:C}", Model.Price)</span>
+                    <span class="sale-price">@String.Format("{0:C}", Model.SalePrice)</span>
+                }
+                else
+                {
+                    <span class="price">@String.Format("{0:C}", Model.Price)</span>
+                }
+            </div>
+            <div class="mb-3">
+                <span class="badge @(Model.StockQuantity > 10 ? "bg-success" : Model.StockQuantity > 0 ? "bg-warning text-dark" : "bg-danger")">
+                    @(Model.StockQuantity > 10 ? "Stokta" : Model.StockQuantity > 0 ? "Az Stok" : "Tükendi")
+                </span>
+                <span class="ms-2" style="color:#e10600;"><i class="fas fa-shipping-fast"></i> Kargo: @(Model.EstimatedDeliveryDays ?? 3) gün</span>
+            </div>
+            <div class="mb-3">
+                <p class="lead">@Model.Description</p>
+            </div>
+            <div class="mb-3">
+                <h6 class="fw-bold" style="color:#e10600;">Teknik Bilgiler</h6>
+                <ul class="list-unstyled" style="color:#bbb;">
+                    <li><strong>Ürün Kodu:</strong> @Model.Id</li>
+                    <li><strong>Takım:</strong> @Model.Team?.Name</li>
+                    <li><strong>Kategori:</strong> @Model.Category?.Name</li>
+                    <li><strong>Stok:</strong> @Model.StockQuantity</li>
+                </ul>
+            </div>
+            <div class="d-flex gap-2 mt-4">
+                <form method="post" action="/Cart/AddToCart">
+                    <input type="hidden" name="productId" value="@Model.Id" />
+                    <button type="submit" class="btn btn-f1 btn-lg" @(Model.StockQuantity == 0 ? "disabled" : "")>
+                        <i class="fas fa-bolt"></i> Hemen Satın Al
+                    </button>
+                </form>
+                <button class="btn btn-outline-f1 btn-lg favorite-btn" data-id="@Model.Id">
+                    <i class="far fa-heart"></i> Favorilere Ekle
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function showToast(message, type = 'info') {
+            const toast = $(`
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Bildirim</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                </div>
+            `);
+            $('.toast-container').append(toast);
+            const bsToast = new bootstrap.Toast(toast[0]);
+            bsToast.show();
+            toast.on('hidden.bs.toast', function () {
+                toast.remove();
+            });
+        }
+        $(document).ready(function () {
+            $('.favorite-btn').click(function () {
+                var productId = $(this).data('id');
+                showToast('Favorilere eklendi!', 'info');
+            });
+        });
+    </script>
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+} 

@@ -1,0 +1,78 @@
+@model PitStore.Models.Payment
+
+@{
+    ViewData["Title"] = "Ödeme";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4">Ödeme Bilgileri</h2>
+                    <div class="alert alert-info mb-4">
+                        <strong>Test Kartı:</strong> 4242 4242 4242 4242<br>
+                        <strong>Son Kullanma:</strong> Gelecekteki herhangi bir tarih (MM/YY)<br>
+                        <strong>CVC:</strong> Herhangi 3 rakam
+                    </div>
+
+                    <form asp-action="Process" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="CardHolderName" class="form-label">Kart Üzerindeki İsim</label>
+                            <input asp-for="CardHolderName" class="form-control" />
+                            <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CardNumber" class="form-label">Kart Numarası</label>
+                            <input asp-for="CardNumber" class="form-control" placeholder="4242 4242 4242 4242" />
+                            <span asp-validation-for="CardNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ExpiryDate" class="form-label">Son Kullanma Tarihi</label>
+                                <input asp-for="ExpiryDate" class="form-control" placeholder="MM/YY" />
+                                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CVC" class="form-label">CVC</label>
+                                <input asp-for="CVC" class="form-control" placeholder="123" />
+                                <span asp-validation-for="CVC" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-primary mb-4">
+                            <h5 class="mb-0">Toplam Tutar: $@Model.Amount.ToString("F2")</h5>
+                        </div>
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Ödemeyi Tamamla</button>
+                            <a asp-controller="Cart" asp-action="Index" class="btn btn-secondary">Sepete Dön</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // Kart numarası formatlaması
+        document.getElementById('CardNumber').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            let formattedValue = '';
+            for(let i = 0; i < value.length; i++) {
+                if(i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                }
+                formattedValue += value[i];
+            }
+            e.target.value = formattedValue;
+        });
+    </script>
+} 

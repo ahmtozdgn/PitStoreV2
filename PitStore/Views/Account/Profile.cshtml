@@ -1,0 +1,168 @@
+@model PitStore.Models.User
+@using PitStore.Models
+@using PitStore.Services
+@inject IOrderService OrderService
+
+@{
+    ViewData["Title"] = "Profilim";
+    var userOrders = OrderService.GetUserOrdersAsync(Model.Id).Result;
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Profil Bilgileri</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="UpdateProfile" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">E-posta</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="PhoneNumber" class="form-label">Telefon</label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Bilgileri Güncelle</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h2 class="card-title">Şifre Değiştir</h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="ChangePassword" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Mevcut Şifre</label>
+                            <input type="password" name="currentPassword" id="currentPassword" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">Yeni Şifre</label>
+                            <input type="password" name="newPassword" id="newPassword" class="form-control" required />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Yeni Şifre (Tekrar)</label>
+                            <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" required />
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Şifreyi Değiştir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h2 class="card-title">Hesap Bilgileri</h2>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Kullanıcı Adı</dt>
+                        <dd class="col-sm-8">@Model.UserName</dd>
+
+                        <dt class="col-sm-4">Üyelik Tarihi</dt>
+                        <dd class="col-sm-8">@Model.CreatedAt.ToString("dd.MM.yyyy")</dd>
+
+                        <dt class="col-sm-4">Son Giriş</dt>
+                        <dd class="col-sm-8">@(Model.LastLoginAt?.ToString("dd.MM.yyyy HH:mm") ?? "Bilgi yok")</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-header bg-dark text-white">
+                    <h2 class="card-title" style="font-family:'Orbitron',sans-serif; color:#e10600;">Sipariş Geçmişim</h2>
+                </div>
+                <div class="card-body" style="background:#18191f; color:#fff;">
+                    @if (!userOrders.Any())
+                    {
+                        <div class="alert alert-info">Henüz hiç sipariş vermediniz.</div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tarih</th>
+                                        <th>Tutar</th>
+                                        <th>Durum</th>
+                                        <th>Ürünler</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach (var order in userOrders)
+                                {
+                                    <tr>
+                                        <td>@order.Id</td>
+                                        <td>@order.OrderDate.ToString("dd.MM.yyyy HH:mm")</td>
+                                        <td>@order.TotalAmount.ToString("C")</td>
+                                        <td>
+                                            <span class="badge @(order.Status switch {
+                                                OrderStatus.Pending => "bg-warning",
+                                                OrderStatus.Processing => "bg-info",
+                                                OrderStatus.Shipped => "bg-primary",
+                                                OrderStatus.Delivered => "bg-success",
+                                                OrderStatus.Cancelled => "bg-danger",
+                                                OrderStatus.Refunded => "bg-secondary",
+                                                _ => "bg-secondary"
+                                            })">
+                                                @order.Status
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <ul class="list-unstyled mb-0">
+                                                @foreach (var item in order.OrderItems)
+                                                {
+                                                    <li>
+                                                        <img src="@(string.IsNullOrEmpty(item.Product.ImageUrl) ? "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=60&q=80" : item.Product.ImageUrl)" alt="@item.Product.Name" style="width:32px; height:32px; object-fit:cover; border-radius:4px; margin-right:4px;" />
+                                                        <span>@item.Product.Name</span> <span class="badge bg-secondary ms-1">@item.Quantity x</span>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </td>
+                                        <td>
+                                            <a href="/Order/Details/@order.Id" class="btn btn-outline-f1 btn-sm">Detay</a>
+                                        </td>
+                                    </tr>
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

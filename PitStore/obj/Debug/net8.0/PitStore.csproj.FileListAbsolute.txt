@@ -1,0 +1,8 @@
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.csproj.AssemblyReference.cache
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.AssemblyInfoInputs.cache
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.AssemblyInfo.cs
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.csproj.CoreCompileInputs.cache
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.RazorAssemblyInfo.cache
+C:\Users\ahmet\source\repos\PitStore\PitStore\obj\Debug\net8.0\PitStore.RazorAssemblyInfo.cs

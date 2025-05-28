@@ -1,0 +1,196 @@
+﻿@model IEnumerable<PitStore.Models.Product>
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="container-fluid px-0">
+    <!-- F1 Hero Slider -->
+    <div id="f1HeroCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://imgs.search.brave.com/Z1iRUo3V5SXiTXuQjz0s4eLgiSqZk8Sxo0xHBER1pXM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vQVpmek1I/MERNaUFkM25CT1Jf/T1NpdVZvX2JqTV9B/YnctVTNpVk9WdmR2/VS9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTl0/TG0xbC9aR2xoTFdG/dFlYcHZiaTVqL2Iy/MHZhVzFoWjJWekww/a3YvT0RGSFIwVTVZ/MVYwTTB3dS9hbkJu" class="d-block w-20" alt="Formula 1 Hero 1" loading="lazy">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold" style="color:#fff; text-shadow:4px 4px 8px #000;">Formula 1 Tutkusunu Yaşa</h2>
+                    <p class="lead">En yeni F1 ürünleri, takımlar ve koleksiyonlar burada!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://media.formula1.com/image/upload/fom-website/2025/Mercedes/Formula%201%20header%20templates%20-%202025-02-24T142211.818" class="d-block w-100" alt="Formula 1 Hero 2" loading="lazy">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold" style="color:#fff; text-shadow:2px 2px 8px #000;">Takımını Seç, Tarzını Yansıt</h2>
+                    <p class="lead">Ferrari, Mercedes, Red Bull ve daha fazlası için resmi ürünler.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://imgs.search.brave.com/6k14w2x0C1uDm6s0ZYP2OKKjGpOSAypArR1FFf0rTUE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vb3NhTVZL/aThsSGJwWXliUFdo/NEx0VEk5MzRRNG02/cjFfY0pMVFNfdmJC/QS9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNITTZMeTl0/TG0xbC9aR2xoTFdG/dFlYcHZiaTVqL2Iy/MHZhVzFoWjJWekww/a3YvTmpGbE5FRjJl/R1JFZVV3dS9hbkJu" width="500" height="500" alt="Formula 1 Hero 3" loading="lazy">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4 fw-bold" style="color:#fff; text-shadow:2px 2px 8px #000;">F1 Koleksiyonunu Tamamla</h2>
+                    <p class="lead">Sınırlı sayıda koleksiyon ürünleri ve hediyelikler.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#f1HeroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Önceki</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#f1HeroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Sonraki</span>
+        </button>
+    </div>
+    <!-- Takım Temalı Kategori Kartları -->
+    <div class="container mb-5">
+        <h3 class="mb-4 text-center" style="font-family:'Orbitron',sans-serif; color:#e10600;">Takımlar</h3>
+        <div class="row justify-content-center g-4">
+            <div class="col-6 col-md-3">
+                <div class="card team-card text-center p-3 h-100" style="background:#18191f; border:2px solid #e10600;">
+                    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/ferrari" alt="Ferrari" class="mx-auto mb-2" style="width:60px;">
+                    <h5 class="fw-bold" style="color:#e10600;">Ferrari</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card team-card text-center p-3 h-100" style="background:#18191f; border:2px solid #00d2be;">
+                    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/mercedes" alt="Mercedes" class="mx-auto mb-2" style="width:60px;">
+                    <h5 class="fw-bold" style="color:#00d2be;">Mercedes</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card team-card text-center p-3 h-100" style="background:#18191f; border:2px solid #1e41ff;">
+                    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/red%20bull" alt="Red Bull" class="mx-auto mb-2" style="width:60px;">
+                    <h5 class="fw-bold" style="color:#1e41ff;">Red Bull</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card team-card text-center p-3 h-100" style="background:#18191f; border:2px solid #ff8700;">
+                    <img src="https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/mclaren" alt="McLaren" class="mx-auto mb-2" style="width:60px;">
+                    <h5 class="fw-bold" style="color:#ff8700;">McLaren</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kategoriler ve Ürün Gridleri (örnek) -->
+    <div class="container mb-5">
+        <h3 class="mb-4 text-center" style="font-family:'Orbitron',sans-serif; color:#e10600;">Kategoriler</h3>
+        <div class="row justify-content-center g-4">
+            <div class="col-6 col-md-3">
+                <div class="card text-center p-3 h-100" style="background:#18191f; border:2px solid #e10600;">
+                    <i class="fas fa-tshirt fa-2x mb-2" style="color:#e10600;"></i>
+                    <h6 class="fw-bold">Tişörtler</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-center p-3 h-100" style="background:#18191f; border:2px solid #e10600;">
+                    <i class="fas fa-hat-cowboy fa-2x mb-2" style="color:#e10600;"></i>
+                    <h6 class="fw-bold">Şapkalar</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-center p-3 h-100" style="background:#18191f; border:2px solid #e10600;">
+                    <i class="fas fa-mug-hot fa-2x mb-2" style="color:#e10600;"></i>
+                    <h6 class="fw-bold">Aksesuarlar</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-center p-3 h-100" style="background:#18191f; border:2px solid #e10600;">
+                    <i class="fas fa-flag-checkered fa-2x mb-2" style="color:#e10600;"></i>
+                    <h6 class="fw-bold">Koleksiyon</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <section class="featured-teams mb-5">
+        <h2 class="text-center mb-4">Takımlar</h2>
+        <div class="row g-4">
+            @foreach (var team in ViewBag.FeaturedTeams)
+            {
+                <div class="col-6 col-md-4 col-lg-2">
+                    <a asp-controller="Product" asp-action="Index" asp-route-team="@team.Name" class="text-decoration-none">
+                        <div class="team-card text-center p-3">
+                            <img src="@(string.IsNullOrEmpty(team.LogoUrl) ? "https://media.formula1.com/image/upload/f_auto,c_limit,q_75,w_1320/content/dam/fom-website/2018-redesign-assets/team%20logos/red%20bull" : team.LogoUrl)" alt="@team.Name" class="img-fluid mb-2" loading="lazy">
+                            <h5 class="text-light">@team.Name</h5>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </section>
+
+    <section class="featured-products mb-5">
+        <h2 class="text-center mb-4">Öne Çıkan Ürünler</h2>
+        <div class="product-grid">
+            @foreach (var product in ViewBag.FeaturedProducts)
+            {
+                <partial name="_ProductCard" model="product" />
+            }
+        </div>
+    </section>
+
+    <section class="categories mb-5">
+        <h2 class="text-center mb-4">Kategoriler</h2>
+        <div class="row g-4">
+            @foreach (var category in ViewBag.Categories)
+            {
+                <div class="col-6 col-md-4">
+                    <a asp-controller="Product" asp-action="Index" asp-route-category="@category.Name" class="text-decoration-none">
+                        <div class="category-card position-relative">
+                            <img src="@category.ImageUrl" alt="@category.Name" class="img-fluid rounded" loading="lazy">
+                            <div class="category-overlay">
+                                <h3 class="text-light">@category.Name</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </section>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="feature-card text-center p-4">
+                <i class="fas fa-truck fa-3x mb-3 text-danger"></i>
+                <h4>Hızlı Teslimat</h4>
+                <p class="text-muted">2-3 iş günü içinde kargoya teslim</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card text-center p-4">
+                <i class="fas fa-shield-alt fa-3x mb-3 text-danger"></i>
+                <h4>Güvenli Alışveriş</h4>
+                <p class="text-muted">256-bit SSL güvenlik sertifikası</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card text-center p-4">
+                <i class="fas fa-undo fa-3x mb-3 text-danger"></i>
+                <h4>Kolay İade</h4>
+                <p class="text-muted">14 gün içinde ücretsiz iade</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.add-to-cart').click(function() {
+                const productId = $(this).data('product-id');
+                // Sepete ekleme işlemi
+                $.post('/Cart/Add', { productId: productId })
+                    .done(function(response) {
+                        // Başarılı mesajı göster
+                        alert('Ürün sepete eklendi!');
+                        // Sepet sayısını güncelle
+                        $('.cart-count').text(response.cartCount);
+                    })
+                    .fail(function(error) {
+                        alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+                    });
+            });
+        });
+    </script>
+}

@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "Ödeme";
+}
+<div class="container py-5">
+    <h2 class="mb-4 text-center" style="font-family:'Orbitron',sans-serif; color:#e10600;">Ödeme</h2>
+    <form asp-action="Checkout" method="post" class="needs-validation" novalidate>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card p-4 mb-3" style="background:#18191f; border:2px solid #e10600;">
+                    <h5 class="mb-3" style="color:#e10600;">Teslimat Adresi</h5>
+                    <div class="mb-3">
+                        <label for="shippingAddress" class="form-label">Adres</label>
+                        <textarea class="form-control" id="shippingAddress" name="shippingAddress" rows="3" required></textarea>
+                        <div class="invalid-feedback">Adres alanı zorunludur.</div>
+                    </div>
+                </div>
+                <div class="card p-4 mb-3" style="background:#18191f; border:2px solid #e10600;">
+                    <h5 class="mb-3" style="color:#e10600;">Ödeme Yöntemi</h5>
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Ödeme Yöntemi</label>
+                        <select class="form-select" id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="Kredi Kartı">Kredi Kartı</option>
+                            <option value="Havale/EFT">Havale/EFT</option>
+                            <option value="Kapıda Ödeme">Kapıda Ödeme</option>
+                        </select>
+                        <div class="invalid-feedback">Lütfen bir ödeme yöntemi seçiniz.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4 mb-3" style="background:#18191f; border:2px solid #e10600;">
+                    <h5 class="mb-3" style="color:#e10600;">Sipariş Özeti</h5>
+                    <ul class="list-group mb-3">
+                        @foreach (var item in ViewBag.CartItems ?? new List<PitStore.Models.CartItem>())
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center" style="background:#23232b; color:#fff;">
+                                <span>@item.Product?.Name <span class="badge bg-secondary ms-2">@item.Quantity x</span></span>
+                                <span>@String.Format("{0:C}", item.Product?.Price ?? 0)</span>
+                            </li>
+                        }
+                    </ul>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="fw-bold">Toplam:</span>
+                        <span class="fw-bold" style="color:#e10600;">@String.Format("{0:C}", ViewBag.CartTotal ?? 0)</span>
+                    </div>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-f1 btn-lg mt-2">Siparişi Onayla <i class="fas fa-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <script>
+        (function () {
+            'use strict';
+            var forms = document.querySelectorAll('.needs-validation');
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+    </script>
+} 

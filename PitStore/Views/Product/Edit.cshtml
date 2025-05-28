@@ -1,0 +1,191 @@
+@model PitStore.Models.Product
+@{
+    ViewData["Title"] = "Ürün Düzenle";
+}
+<div class="container mt-4">
+    <h2>Ürün Düzenle</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="SalePrice" class="form-label"></label>
+                            <input asp-for="SalePrice" class="form-control" />
+                            <span asp-validation-for="SalePrice" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Team" class="form-label"></label>
+                            <input asp-for="Team" class="form-control" />
+                            <span asp-validation-for="Team" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Category" class="form-label"></label>
+                            <input asp-for="Category" class="form-control" />
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="StockQuantity" class="form-label"></label>
+                    <input asp-for="StockQuantity" class="form-control" />
+                    <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input asp-for="IsOnSale" class="form-check-input" />
+                        <label asp-for="IsOnSale" class="form-check-label"></label>
+                    </div>
+                </div>
+
+                <!-- Ana Resim -->
+                <div class="mb-3">
+                    <label class="form-label">Ana Resim</label>
+                    <div class="image-container mb-2">
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            <div class="position-relative d-inline-block">
+                                <img src="@Model.ImageUrl" alt="@Model.Name" class="img-thumbnail" style="max-width: 200px;" />
+                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 delete-image" 
+                                        data-product-id="@Model.Id" data-image-type="main">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                    <label asp-for="ImageFile" class="form-label">Yeni Ana Resim</label>
+                    <input asp-for="ImageFile" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+
+                <!-- Ek Resim 1 -->
+                <div class="mb-3">
+                    <label class="form-label">Ek Resim 1</label>
+                    <div class="image-container mb-2">
+                        @if (!string.IsNullOrEmpty(Model.AdditionalImage1Url))
+                        {
+                            <div class="position-relative d-inline-block">
+                                <img src="@Model.AdditionalImage1Url" alt="@Model.Name" class="img-thumbnail" style="max-width: 200px;" />
+                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 delete-image" 
+                                        data-product-id="@Model.Id" data-image-type="additional1">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                    <label asp-for="AdditionalImage1File" class="form-label">Yeni Ek Resim 1</label>
+                    <input asp-for="AdditionalImage1File" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="AdditionalImage1File" class="text-danger"></span>
+                </div>
+
+                <!-- Ek Resim 2 -->
+                <div class="mb-3">
+                    <label class="form-label">Ek Resim 2</label>
+                    <div class="image-container mb-2">
+                        @if (!string.IsNullOrEmpty(Model.AdditionalImage2Url))
+                        {
+                            <div class="position-relative d-inline-block">
+                                <img src="@Model.AdditionalImage2Url" alt="@Model.Name" class="img-thumbnail" style="max-width: 200px;" />
+                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 delete-image" 
+                                        data-product-id="@Model.Id" data-image-type="additional2">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                    <label asp-for="AdditionalImage2File" class="form-label">Yeni Ek Resim 2</label>
+                    <input asp-for="AdditionalImage2File" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="AdditionalImage2File" class="text-danger"></span>
+                </div>
+
+                <!-- Ek Resim 3 -->
+                <div class="mb-3">
+                    <label class="form-label">Ek Resim 3</label>
+                    <div class="image-container mb-2">
+                        @if (!string.IsNullOrEmpty(Model.AdditionalImage3Url))
+                        {
+                            <div class="position-relative d-inline-block">
+                                <img src="@Model.AdditionalImage3Url" alt="@Model.Name" class="img-thumbnail" style="max-width: 200px;" />
+                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 m-1 delete-image" 
+                                        data-product-id="@Model.Id" data-image-type="additional3">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        }
+                    </div>
+                    <label asp-for="AdditionalImage3File" class="form-label">Yeni Ek Resim 3</label>
+                    <input asp-for="AdditionalImage3File" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="AdditionalImage3File" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $('.delete-image').click(function () {
+                var button = $(this);
+                var productId = button.data('product-id');
+                var imageType = button.data('image-type');
+                
+                if (confirm('Bu resmi silmek istediğinizden emin misiniz?')) {
+                    $.ajax({
+                        url: '@Url.Action("DeleteImage", "Product")',
+                        type: 'POST',
+                        data: {
+                            productId: productId,
+                            imageType: imageType
+                        },
+                        headers: {
+                            'RequestVerificationToken': $('input[name="__RequestVerificationToken"]').val()
+                        },
+                        success: function (response) {
+                            if (response.success) {
+                                button.closest('.position-relative').remove();
+                            } else {
+                                alert('Resim silinirken bir hata oluştu: ' + response.message);
+                            }
+                        },
+                        error: function () {
+                            alert('Resim silinirken bir hata oluştu.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+} 

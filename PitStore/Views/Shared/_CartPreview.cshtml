@@ -1,0 +1,36 @@
+@model IEnumerable<PitStore.Models.CartItem>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-3">
+        <i class="bi bi-cart3 fs-1 text-muted"></i>
+        <p class="mt-2 mb-0">Sepetiniz boş</p>
+    </div>
+}
+else
+{
+    foreach (var item in Model)
+    {
+        <div class="cart-item" data-cart-item-id="@item.Id">
+            <img src="@item.Product.ImageUrl" alt="@item.Product.Name" class="cart-item-image">
+            <div class="cart-item-details">
+                <div class="cart-item-title">@item.Product.Name</div>
+                <div class="cart-item-price">@item.Product.Price.ToString("C")</div>
+                <div class="cart-item-quantity">
+                    <button class="btn btn-sm btn-outline-secondary quantity-btn" data-cart-item-id="@item.Id" data-change="-1">
+                        <i class="bi bi-dash"></i>
+                    </button>
+                    <input type="number" class="form-control form-control-sm quantity-input" 
+                           id="quantity-@item.Id" value="@item.Quantity" min="1" max="99"
+                           data-cart-item-id="@item.Id">
+                    <button class="btn btn-sm btn-outline-secondary quantity-btn" data-cart-item-id="@item.Id" data-change="1">
+                        <i class="bi bi-plus"></i>
+                    </button>
+                </div>
+            </div>
+            <button class="btn btn-sm btn-link text-danger remove-item" data-cart-item-id="@item.Id">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
+    }
+} 

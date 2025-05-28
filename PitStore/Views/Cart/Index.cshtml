@@ -1,0 +1,140 @@
+@model List<PitStore.Models.ViewModels.CartItemViewModel>
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+<div class="container mt-4">
+    <h2>Shopping Cart</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Your cart is empty. <a href="/Product" class="alert-link">Continue shopping</a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="@item.ProductImageUrl" alt="@item.ProductName" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">
+                                    <div class="ms-3">
+                                        <h5 class="mb-0">@item.ProductName</h5>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <span>@item.UnitPrice.ToString("C")</span>
+                            </td>
+                            <td>
+                                <div class="input-group" style="width: 120px;">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(@item.Id, -1)">-</button>
+                                    <input type="number" class="form-control text-center quantity-input" value="@item.Quantity" min="1" max="99" onchange="updateQuantity(@item.Id, this.value)">
+                                    <button class="btn btn-outline-secondary" type="button" onclick="updateQuantity(@item.Id, 1)">+</button>
+                                </div>
+                            </td>
+                            <td>@((item.UnitPrice * item.Quantity).ToString("C"))</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm" onclick="removeFromCart(@item.Id)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                        <td><strong>@String.Format("{0:C}", ViewBag.CartTotal)</strong></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <a href="/Product" class="btn btn-outline-primary">
+                <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+            <a href="/Cart/Checkout" class="btn btn-success">
+                Proceed to Checkout <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function showToast(message, type = 'info') {
+            const toast = $(`
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header">
+                        <strong class="me-auto">Bildirim</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        ${message}
+                    </div>
+                </div>
+            `);
+            $('.toast-container').append(toast);
+            const bsToast = new bootstrap.Toast(toast[0]);
+            bsToast.show();
+            toast.on('hidden.bs.toast', function () {
+                toast.remove();
+            });
+        }
+        function updateQuantity(cartItemId, change) {
+            const input = event.target.closest('.input-group').querySelector('.quantity-input');
+            let quantity = parseInt(input.value);
+            if (typeof change === 'number') {
+                quantity = Math.max(1, Math.min(99, quantity + change));
+            } else {
+                quantity = Math.max(1, Math.min(99, parseInt(change)));
+            }
+            input.value = quantity;
+            $.post('/Cart/UpdateQuantity', { cartItemId: cartItemId, quantity: quantity })
+                .done(function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        showToast(response.message, 'error');
+                    }
+                })
+                .fail(function() {
+                    showToast('Bir hata oluştu. Lütfen tekrar deneyin.', 'error');
+                });
+        }
+        function removeFromCart(cartItemId) {
+            if (confirm('Are you sure you want to remove this item from your cart?')) {
+                $.post('/Cart/RemoveFromCart', { cartItemId: cartItemId })
+                    .done(function(response) {
+                        if (response.success) {
+                            location.reload();
+                        } else {
+                            showToast(response.message, 'error');
+                        }
+                    })
+                    .fail(function() {
+                        showToast('Bir hata oluştu. Lütfen tekrar deneyin.', 'error');
+                    });
+            }
+        }
+    </script>
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;"></div>
+} 

@@ -1,0 +1,78 @@
+@model IEnumerable<PitStore.Models.Product>
+@{
+    ViewData["Title"] = "Ürünler";
+    Layout = "_AdminLayout";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0">Ürünler</h1>
+    <a asp-controller="Product" asp-action="Create" class="btn btn-primary">
+        <i class="fas fa-plus me-2"></i>Yeni Ürün
+    </a>
+</div>
+
+<div class="card admin-panel">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Resim</th>
+                        <th>Ürün Adı</th>
+                        <th>Fiyat</th>
+                        <th>Stok</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            <td>@product.Id</td>
+                            <td>
+                                <img src="@(string.IsNullOrEmpty(product.ImageUrl) ? "/images/default-product.png" : product.ImageUrl)" alt="@product.Name" style="width: 50px; height: 50px; object-fit: cover; background: #fff; border-radius: 4px;" />
+                            </td>
+                            <td>@product.Name</td>
+                            <td>
+                                @if (product.IsOnSale)
+                                {
+                                    <span class="text-decoration-line-through text-muted">@product.Price.ToString("C")</span>
+                                    <span class="text-danger ms-2">@product.SalePrice?.ToString("C")</span>
+                                }
+                                else
+                                {
+                                    @product.Price.ToString("C")
+                                }
+                            </td>
+                            <td>
+                                <span class="badge bg-@(product.StockQuantity > 10 ? "success" : product.StockQuantity > 0 ? "warning" : "danger")">
+                                    @product.StockQuantity
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge bg-@(product.IsActive ? "success" : "danger")">
+                                    @(product.IsActive ? "Aktif" : "Pasif")
+                                </span>
+                            </td>
+                            <td>
+                                <div class="btn-group">
+                                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-sm btn-info">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-sm btn-danger">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div> 

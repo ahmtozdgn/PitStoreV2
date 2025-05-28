@@ -1,0 +1,34 @@
+@model PitStore.Models.Product
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Name">
+    </div>
+    <div class="col-md-6">
+        <h4>@Model.Name</h4>
+        <div class="product-rating mb-2">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <i class="fas fa-star @(i <= Model.AverageRating ? "text-warning" : "text-muted")"></i>
+            }
+            <span class="rating-count">(@Model.ReviewCount reviews)</span>
+        </div>
+        <p class="price mb-3">$@Model.Price.ToString("F2")</p>
+        <p class="mb-3">@Model.Description</p>
+        <div class="mb-3">
+            <strong>Team:</strong> @Model.Team
+        </div>
+        <div class="mb-3">
+            <strong>Category:</strong> @Model.Category
+        </div>
+        <div class="mb-3">
+            <strong>Stock:</strong> @Model.StockQuantity units available
+        </div>
+        <div class="d-flex gap-2">
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline-light">View Details</a>
+            <button class="btn btn-f1" onclick="addToCart(@Model.Id)">
+                <i class="fas fa-shopping-cart"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div> 

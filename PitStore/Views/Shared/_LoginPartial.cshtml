@@ -1,0 +1,49 @@
+@using Microsoft.AspNetCore.Identity
+@using PitStore.Models
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    var currentUser = await UserManager.GetUserAsync(User);
+    var isAdmin = currentUser != null && currentUser.IsAdmin;
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-user"></i> @User.Identity?.Name
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+            <li>
+                <a class="dropdown-item" asp-controller="Account" asp-action="Profile">Profilim</a>
+            </li>
+            @if (isAdmin)
+            {
+                <li>
+                    <a class="dropdown-item bg-warning text-dark fw-bold" asp-controller="Admin" asp-action="Index">Admin Panel</a>
+                </li>
+            }
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+                <form class="d-inline" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="dropdown-item text-danger">Çıkış Yap</button>
+                </form>
+            </li>
+        </ul>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Account" asp-action="Register">
+            <i class="fas fa-user-plus"></i>
+            Kayıt Ol
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" asp-controller="Account" asp-action="Login">
+            <i class="fas fa-sign-in-alt"></i>
+            Giriş Yap
+        </a>
+    </li>
+}
+</ul> 

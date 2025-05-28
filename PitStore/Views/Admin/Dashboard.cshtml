@@ -1,0 +1,121 @@
+@model PitStore.ViewModels.AdminDashboardViewModel
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Admin Dashboard</h1>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Toplam Sipariş</h5>
+                    <p class="card-text display-4">@Model.TotalOrders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Toplam Gelir</h5>
+                    <p class="card-text display-4">@Model.TotalRevenue.ToString("C")</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Toplam Ürün</h5>
+                    <p class="card-text display-4">@Model.TotalProducts</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Toplam Kullanıcı</h5>
+                    <p class="card-text display-4">@Model.TotalUsers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Son Siparişler</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Sipariş No</th>
+                                    <th>Kullanıcı</th>
+                                    <th>Tutar</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model.RecentOrders)
+                                {
+                                    <tr>
+                                        <td>@order.Id</td>
+                                        <td>@order.User?.Email</td>
+                                        <td>@order.TotalAmount.ToString("C")</td>
+                                        <td>@order.Status</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Stok Durumu</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th>Stok</th>
+                                    <th>Durum</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model.LowStockProducts)
+                                {
+                                    <tr>
+                                        <td>@product.Name</td>
+                                        <td>@product.StockQuantity</td>
+                                        <td>
+                                            @if (product.StockQuantity <= 0)
+                                            {
+                                                <span class="badge bg-danger">Stok Yok</span>
+                                            }
+                                            else if (product.StockQuantity <= 5)
+                                            {
+                                                <span class="badge bg-warning">Az Stok</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-success">Stokta</span>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

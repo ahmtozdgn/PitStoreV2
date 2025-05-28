@@ -1,0 +1,19 @@
+@model PitStore.Models.Product
+@{
+    ViewData["Title"] = "Ürün Sil";
+}
+<div class="container">
+    <h1 class="mb-4">Ürün Sil</h1>
+    <div class="alert alert-danger">Bu ürünü silmek istediğinize emin misiniz?</div>
+    <div>
+        <h4>@Model.Name</h4>
+        <p>@Model.Description</p>
+        <p><strong>Fiyat:</strong> $@Model.Price.ToString("F2")</p>
+        <p><strong>Kategori:</strong> @Model.Category</p>
+    </div>
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Sil</button>
+        <a asp-action="Index" class="btn btn-secondary">İptal</a>
+    </form>
+</div> 

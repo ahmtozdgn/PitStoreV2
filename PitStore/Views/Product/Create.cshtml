@@ -1,0 +1,106 @@
+@model PitStore.Models.Product
+@{
+    ViewData["Title"] = "Yeni Ürün Ekle";
+}
+<div class="container mt-4">
+    <h2>Yeni Ürün Ekle</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-8">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="SalePrice" class="form-label"></label>
+                            <input asp-for="SalePrice" class="form-control" />
+                            <span asp-validation-for="SalePrice" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Team" class="form-label"></label>
+                            <input asp-for="Team" class="form-control" />
+                            <span asp-validation-for="Team" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label asp-for="Category" class="form-label"></label>
+                            <input asp-for="Category" class="form-control" />
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="StockQuantity" class="form-label"></label>
+                    <input asp-for="StockQuantity" class="form-control" />
+                    <span asp-validation-for="StockQuantity" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input asp-for="IsOnSale" class="form-check-input" />
+                        <label asp-for="IsOnSale" class="form-check-label"></label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ImageFile" class="form-label">Main Image</label>
+                    <input asp-for="ImageFile" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AdditionalImage1File" class="form-label">Additional Image 1</label>
+                    <input asp-for="AdditionalImage1File" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="AdditionalImage1File" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AdditionalImage2File" class="form-label">Additional Image 2</label>
+                    <input asp-for="AdditionalImage2File" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="AdditionalImage2File" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AdditionalImage3File" class="form-label">Additional Image 3</label>
+                    <input asp-for="AdditionalImage3File" class="form-control" type="file" accept="image/*" />
+                    <span asp-validation-for="AdditionalImage3File" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

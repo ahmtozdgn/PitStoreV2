@@ -1,0 +1,16 @@
+@using PitStore.Services
+@inject ICartService CartService
+@{
+    var userId = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+    var cartCount = userId != null ? await CartService.GetCartItemCountAsync(userId) : 0;
+}
+
+<a href="@Url.Action("Index", "Cart")" class="nav-link position-relative">
+    <i class="bi bi-cart3"></i>
+    @if (cartCount > 0)
+    {
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            @cartCount
+        </span>
+    }
+</a> 

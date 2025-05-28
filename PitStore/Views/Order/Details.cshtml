@@ -1,0 +1,51 @@
+@model PitStore.Models.Order
+
+@{
+    ViewData["Title"] = $"Order #{Model.Id}";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="mb-4">Order #@Model.Id</h1>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Order Information</h5>
+                    <p><strong>Order Date:</strong> @Model.OrderDate.ToString("MMM dd, yyyy HH:mm")</p>
+                    <p><strong>Status:</strong> <span class="badge bg-primary">@Model.Status</span></p>
+                    <p><strong>Shipping Address:</strong> @Model.ShippingAddress</p>
+                </div>
+            </div>
+
+            <h4 class="mb-3">Order Items</h4>
+            @foreach (var item in Model.OrderItems)
+            {
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="@item.Product.ImageUrl" class="img-fluid rounded" alt="@item.Product.Name">
+                            </div>
+                            <div class="col-md-6">
+                                <h5>@item.Product.Name</h5>
+                                <p class="text-muted">Quantity: @item.Quantity</p>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <p class="price">$@((item.UnitPrice * item.Quantity).ToString("F2"))</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Order Summary</h5>
+                    <p class="cart-total">Total: $@Model.TotalAmount.ToString("F2")</p>
+                    <a asp-action="Index" class="btn btn-outline-primary w-100">Back to Orders</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,81 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ahmet\\source\\repos\\PitStore\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8AEA333B-2D23-EFC7-5459-D835E9E98ECE}|PitStore\\PitStore.csproj|c:\\users\\ahmet\\source\\repos\\pitstore\\pitstore\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AEA333B-2D23-EFC7-5459-D835E9E98ECE}|PitStore\\PitStore.csproj|solutionrelative:pitstore\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AEA333B-2D23-EFC7-5459-D835E9E98ECE}|PitStore\\PitStore.csproj|c:\\users\\ahmet\\source\\repos\\pitstore\\pitstore\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AEA333B-2D23-EFC7-5459-D835E9E98ECE}|PitStore\\PitStore.csproj|solutionrelative:pitstore\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AEA333B-2D23-EFC7-5459-D835E9E98ECE}|PitStore\\PitStore.csproj|c:\\users\\ahmet\\source\\repos\\pitstore\\pitstore\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8AEA333B-2D23-EFC7-5459-D835E9E98ECE}|PitStore\\PitStore.csproj|solutionrelative:pitstore\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "PitStore\\Views\\Product\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "PitStore\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAACUAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-24T18:54:47.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\Views\\Product\\Details.cshtml",
+              "RelativeDocumentMoniker": "PitStore\\Views\\Product\\Details.cshtml",
+              "ToolTip": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\Views\\Product\\Details.cshtml",
+              "RelativeToolTip": "PitStore\\Views\\Product\\Details.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAABQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-24T18:53:14.087Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "PitStore\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\ahmet\\source\\repos\\PitStore\\PitStore\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "PitStore\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAABnAQAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-24T18:33:01.688Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
